@@ -342,7 +342,7 @@
         <p>Bienvenue chez </p>
             <p style="text-transform:uppercase;color:white"><span id="company_name" >Top Cleaning</p>
             <div class="d-flex flex-column  "   >
-            <span id="company_info">5 Ans d'expérience</span>
+            <span id="company_info"></span>
  
         
  
@@ -883,7 +883,17 @@ document.querySelector('.link2').addEventListener('click', function (event) {
     });
 
 
-  
+   // Get the current year
+   const currentYear = new Date().getFullYear();
+
+// Year of company establishment
+const establishmentYear = 2019;
+
+// Calculate the years of experience
+const experience = currentYear - establishmentYear;
+
+// Set the calculated experience to the span
+document.getElementById('company_info').textContent = `${experience} Ans d'expérience`;
  
     </script>
 
