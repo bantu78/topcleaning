@@ -1,0 +1,53 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 23/08/2020 07:24
+  	*/
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff2") format("woff2"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+        font-size: 20px;
+font-style: normal;
+margin-left: 20px;
+}
+
+.flaticon-concrete:before { content: "\f100"; }
+.flaticon-worker:before {    content: url(../../../img/icon_white/worker_a.png);
+ 
+}
+.flaticon-measure:before { content: "\f102"; }
+.flaticon-building:before { content: url(../../../img/icon_white/cleaning-tools.png); }
+.flaticon-brush:before { content: "\f104"; }
+.flaticon-crane:before { content: url(../../../img/icon_white/cleaning-tools.png);  }
+.flaticon-call:before { content:   url(../../../img/icon_white/cu_se_b.png); }
+.flaticon-calendar:before { content:  url(../../../img/icon_white/oph.png); }
+.flaticon-send-mail:before { content:  url(../../../img/icon_white/mail.png); }
+
+.flaticon-address:before { content: url(../../../img/icon_white/cleaning.png); }
+
+.flaticon-client:before { content: url(../../../img/icon_white/cheerful.png); }
+
+.flaticon-location-a:before { content: url(../../../img/icon_white/location-a.png); }
+.flaticon-cu_se_e:before { content: url(../../../img/icon_white/smartphone.png); }
+
+.flaticon-quality:before { content: url(../../../img/icon_blue/cleaning-tools.png); }
+

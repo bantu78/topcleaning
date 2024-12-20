@@ -1,0 +1,66 @@
+ 
+     
+<div class="blog">
+    <div class="container">
+        <div class="section-header text-center" >
+            <p>Actualités et Infos</p>
+            <img src="../img/feed_logo/lequipe.png" style="  height:97px;object-fit:contain" />
+        </div>
+        <div class="row blog-page">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 col-md-8 wow fadeInUp" data-wow-delay="0.2s" id="rss-feed">
+            
+            </div> 
+           
+        </div>
+     
+    </div>
+</div>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var feedContainer = document.getElementById('rss-feed');
+            
+            var rssFeedUrl = 'https://dwh.lequipe.fr/api/edito/rss?path=/Football/';
+            var rss2jsonUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssFeedUrl)}`;
+
+            fetch(rss2jsonUrl)
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.status === 'ok') {
+                        var items = data.items;
+                        var feedHTML = '';
+
+                        items.forEach((item) => {
+                            var title = item.title;
+                            var link = item.link;
+                            var imageUrl = item.enclosure ? item.enclosure.link : ''; // Handle image URL
+                            var pubDate = new Date(item.pubDate); // Parse the publication date
+                            var formattedDate = pubDate.toLocaleDateString(); // Format the date
+                            var formattedTime = pubDate.toLocaleTimeString(); // Format the time
+
+                            feedHTML +=  
+                            `<div class="blog-item wow fadeInUp" data-wow-delay="0.2s">
+                                <div class="blog-img">
+                                    ${imageUrl ? `<img src="${imageUrl}" alt="${title}">` : ''}
+                                </div>
+                                <div class="blog-title">
+                                    <h3><a href="${link}" target="_blank">${title}</a></h3>
+                                </div>
+                                <div class="blog-meta">
+                                    <p>Date: ${formattedDate}</p>
+                                    <p>Heure: ${formattedTime}</p>
+                                </div>
+                            </div>`;
+                        });
+
+                        feedContainer.innerHTML = feedHTML;
+                    } else {
+                        console.error('Error fetching RSS feed:', data.message);
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error fetching RSS feed:', error);
+                });
+        });
+    </script>
